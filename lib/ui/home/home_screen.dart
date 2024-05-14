@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomNavigationBarItem(
                 backgroundColor:Theme.of(context).colorScheme.primary,
-                icon:ImageIcon(AssetImage('assets/images/quran-quran-svgrepo-com.png')),
+                icon:ImageIcon(AssetImage('assets/images/quran.png')),
               label: 'Ahadeth',
               ),
               BottomNavigationBarItem(
