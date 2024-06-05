@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:islamy_app_c10/style/app_theme.dart';
 import 'package:islamy_app_c10/ui/hadeth_details/hadeth_details_screen.dart';
 import 'package:islamy_app_c10/ui/home/home_screen.dart';
 import 'package:islamy_app_c10/ui/quran_details/quran_details_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   print('Hello');
@@ -17,37 +20,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Color(0xffB7935F),
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.white,
-          selectedIconTheme: IconThemeData(
-            size: 50,
-          ),
-          unselectedIconTheme: IconThemeData(
-            size: 40,
-          ),
-        ) ,
-       scaffoldBackgroundColor: Colors.transparent,
-       appBarTheme: AppBarTheme(
-           centerTitle: true,
-           titleTextStyle: TextStyle(
-             color: Colors.black,
-             fontSize: 40,
-             fontWeight: FontWeight.bold
-
-           ),
-           color: Colors.transparent
-       ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffB7935F),
-          primary: Color(0xffB7935F),
-          secondary: Color(0xffB7935F).withOpacity(0.57),
-          onPrimary: Color(0xffF9F8F8),
-          onSecondary: Color(0xff242424),
-        ),
-        useMaterial3: true,
-      ),
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+        Locale('ar'),
+      ],
+      locale: Locale('ar'),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: AppTheme.isDark?ThemeMode.dark:ThemeMode.light ,
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName:(context) => HomeScreen(),

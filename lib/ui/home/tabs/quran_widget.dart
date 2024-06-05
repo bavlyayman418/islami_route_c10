@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app_c10/ui/home/quran_title_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class QuranWidget extends StatelessWidget {
    QuranWidget({Key? key}) : super(key: key);
@@ -30,6 +32,23 @@ class QuranWidget extends StatelessWidget {
              'assets/images/quran_image.png'
          ),
        ),
+       Container(
+         padding: EdgeInsets.all(10),
+         margin: EdgeInsets.all(25),
+         alignment: Alignment.center,
+         width: double.infinity,
+         decoration: BoxDecoration(
+             border: Border.symmetric(horizontal: BorderSide(
+                 color: Theme.of(context).dividerColor,
+                 width: 3
+             )
+             )
+         ),
+         child: Text(
+           AppLocalizations.of(context)!.chaptertitle,
+           style: Theme.of(context).textTheme.titleLarge,
+         ),
+       ),
        Expanded(
          flex: 3,
          child :  ListView.separated(
@@ -46,7 +65,7 @@ class QuranWidget extends StatelessWidget {
                  margin: const EdgeInsets.all(15),
                  width: double.infinity,
                  height: 2,
-                 color: Theme.of(context).primaryColor,
+                 color: Theme.of(context).dividerColor,
              );
              },
              itemCount: suraNames.length),
