@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaWidget extends StatefulWidget {
   const SebhaWidget({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _SebhaWidgetState extends State<SebhaWidget> {
             ],
           ),
           SizedBox(height: 20),
-          Text('counter',
+          Text(AppLocalizations.of(context)!.counter,
             style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold
@@ -61,7 +62,8 @@ class _SebhaWidgetState extends State<SebhaWidget> {
             child: Text(counter.toString(),
                 style: TextStyle(
                     fontSize: 25,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
+                  color: Theme.of(context).primaryColor
                 )
             ),
           ),
